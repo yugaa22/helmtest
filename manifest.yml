@@ -1,6 +1,25 @@
-{
-  "type": "github/file",
-  "reference": "https://api.github.com/repos/baxterthehacker/public-repo/contents/path/to/file.yml",
-  "name": "path/to/file.yml",
-  "version": "aec855f4e0e11"
-}
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  name: spinclitesting
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app:test4531
+  template:
+    metadata:
+      labels:
+        app: test4531
+    spec:
+      containers:
+        - image: 'docker.io/opsmx11/restapp:restapp_spincli-1.0'
+          imagePullPolicy: Always
+          name: restapp
+          ports:
+            - containerPort: 8080
+              name: http
+              protocol: TCP
+            - containerPort: 9090
+              name: prometheus
+              protocol: TCP
