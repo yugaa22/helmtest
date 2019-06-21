@@ -1,45 +1,6 @@
-apiVersion: extensions/v1beta1
-kind: Deployment
-metadata:
-  name: spincli-testing
-  namespace: default
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: spincli-testing
-  template:
-    metadata:
-      labels:
-        app: spincli-testing
-    spec:
-      containers:
-        - image: 'docker.io/opsmx11/restapp:restapp_spincli-1.1'
-          imagePullPolicy: Always
-          name: restapp
-          ports:
-            - containerPort: 8080
-              name: http
-              protocol: TCP
-            - containerPort: 9090
-              name: prometheus
-              protocol: TCP
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: spincli-service
-  namespace: default
-spec:
-  ports:
-    - name: canary
-      port: 8080
-      protocol: TCP
-      targetPort: 8080
-    - name: reports
-      port: 9090
-      protocol: TCP
-      targetPort: 9090
-  selector:
-    app: spincli-testing
-  type: NodePort
+{
+  "type": "github/file",
+  "reference": "https://api.github.com/repos/baxterthehacker/public-repo/contents/path/to/file.yml",
+  "name": "path/to/file.yml",
+  "version": "aec855f4e0e11"
+}
