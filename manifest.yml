@@ -1,17 +1,17 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: spincli-testing
+  name: spincli-4549
   namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: spincli-testing
+      app: spincli-4549
   template:
     metadata:
       labels:
-        app: spincli-testing
+        app: spincli-4549
     spec:
       containers:
         - image: 'docker.io/opsmx11/restapp:restapp_spincli-1.1'
@@ -41,6 +41,6 @@ spec:
       protocol: TCP
       targetPort: 9090
   selector:
-    app: spincli-testing
+    app: spincli-4549
   type: NodePort
       
