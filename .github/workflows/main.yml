@@ -53,4 +53,7 @@ jobs:
         run: |
           ls ${{ github.workspace }} 
           cat Dev_commits
+          for com in $(cat Dev_commits) ; do git cherry-pick -m 1 $com; done
+        env:
+           GITHUB_TOKEN: ${{ secrets.TOKEN }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
