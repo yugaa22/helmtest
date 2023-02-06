@@ -24,7 +24,7 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }} 
-          cd /home/runner/work/hello-script/hello-script
+          #cd /home/runner/work/hello-script/hello-script
           touch Dev_commits
           #ls ${{ github.workspace }}  
           git config --global user.email "yugaa22@gmail.com"
