@@ -25,7 +25,8 @@ jobs:
           #ls ${{ github.workspace }}  
           git config --global user.email "yugaa22@gmail.com"
           git config --global user.name "yugaa22"
-          git log -1 | grep commit | awk '{print $1}'>> Dev_commits
+          #git log -1 | grep commit | awk '{print $2}'
+            gh pr list  -l opsmx --state merged --json mergeCommit | jq -r .[].mergeCommit.oid  >> Dev_commits
           git add .
           git commit -m "Developper_commits"
           git push
