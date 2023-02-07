@@ -19,8 +19,9 @@ jobs:
       - run : git log -1
       - name: List files in the repository
         run: |
-          ls ${{ github.workspace }} 
-          #cd /home/runner/work/hello-script/hello-script
+          ls ${{ github.workspace }}           
+          export GITHUB_TOKEN=""
+          echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
           touch Dev_commits
           #ls ${{ github.workspace }}  
           git config --global user.email "yugaa22@gmail.com"
@@ -31,6 +32,8 @@ jobs:
           git commit -m "Developper_commits"
           git push
           cat Dev_commits
+        env:
+           GITHUB_TOKEN: ${{ secrets.TOKEN }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
 
 
