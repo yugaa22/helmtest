@@ -1,7 +1,3 @@
 
   # helm testing   
   
-cdjj
-  
-zc
- 
